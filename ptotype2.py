@@ -8,17 +8,19 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 # Load the dataset
-file_path = "C:\\Users\\prasa\\Hackathon\\Dataset cleaning\\merged_data.csv"
-df = pd.read_csv(file_path,)
+file_path = 'C:\\Users\\prasa\\ICS\\relabelled merged_file.tsv'
+df = pd.read_csv(file_path, sep='\t')
 
-# # Generate simulated dates (for timeseries plotting)
-# np.random.seed(0)
-# df['created_at'] = pd.to_datetime(
-#     np.random.choice(pd.date_range(start='2023-01-01', end='2023-12-31'), len(df))
-# )
 
-# # Group by date for the timeseries plot
-# tweet_counts_by_date = df['created_at'].value_counts().sort_index()
+
+# Generate simulated dates (for timeseries plotting)
+np.random.seed(0)
+df['created_at'] = pd.to_datetime(
+    np.random.choice(pd.date_range(start='2023-01-01', end='2023-12-31'), len(df))
+)
+
+# Group by date for the timeseries plot
+tweet_counts_by_date = df['created_at'].value_counts().sort_index()
 
 
 st.markdown(

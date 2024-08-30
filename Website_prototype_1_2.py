@@ -8,7 +8,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 # Load the dataset
-file_path = "C:\\Users\\prasa\\Hackathon\\Dataset cleaning\\merged_data.csv"
+file_path = "merged_data.csv"
 df = pd.read_csv(file_path,encoding='ISO-8859-1')
 
 # # Generate simulated dates (for timeseries plotting)
@@ -83,7 +83,7 @@ def dashboard_page():
     # Create the bar chart using the location data
     bar_fig = px.bar(x=location_counts.index, y=location_counts.values, 
                     labels={'x':'labels', 'y':'Tweet Count'},
-                    title="Distribution of Tweets by Location")
+                    title="Distribution of Tweets by labels")
     st.plotly_chart(bar_fig, use_container_width=True)
 
     # Simulated Real-time Timeline of Tweets
